@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Database Code
+# Blog Log Analysis Reports Script
 
 
 import psycopg2
@@ -12,11 +12,8 @@ MostViewedArticles = "SELECT * FROM MostViewedArticles LIMIT 3;"
 PopularAuthor = """SELECT a.name, b.slug as Title, c.NumberOfViews
                     FROM authors a, articles b, MostViewedArticles c
                     WHERE a.id = b.author AND b.slug = c.slug;"""
-HighestErrorPct = """SELECT to_char(HighestErrorPct.error,'0.00%')
-                        as ErrorPct , HighestErrorPct.date
-                    FROM (select error, date FROM PercentageOfStatus )
-                        as HighestErrorPct
-                    WHERE error > 1;"""
+HighestErrorPct = """SELECT To_CHAR(error, '0.00%') as ErrorPct, date
+                    FROM PercentageOfStatus where error >1;"""
 
 q1 = "What are the most popular three articles of all time?"
 q2 = "Who are the most popular article authors of all time?"
