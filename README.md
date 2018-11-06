@@ -47,15 +47,14 @@ The following are the view queries you will need to set up your database:
 ### MostViewedArticles
 This view will serve as a base query. It returns the articles ordered by most viewed ones(For example: it is included in the query that generates the second analytical report)
 
-~~~sql CREATE VIEW MostViewedArticles as SELECT articles.slug, COUNT(log.path) as NumberOfViews FROM log, articles WHERE SUBSTRING( log.path, 10) = articles.slug GROUP BY articles.slug ORDER BY NumberOfViews DESC;
-~~~
+> CREATE VIEW MostViewedArticles as SELECT articles.slug, COUNT(log.path) as NumberOfViews FROM log, articles WHERE SUBSTRING( log.path, 10) = articles.slug GROUP BY articles.slug ORDER BY NumberOfViews DESC;
+
 
 ### Detailed Status
 This view generates the results for the logs status in details, showing the count of successful and failed  requests according to date
-~~~sql CREATE VIEW DetailedStatus as  select count(case when status='200 OK' then 1 ELSE NULL END) as OkStatus,count(case when status= '404 NOT FOUND' then 1 ELSE NULL end) as NFStatus, date(time) as date from log group by date;
-~~~
+> CREATE VIEW DetailedStatus as  select count(case when status='200 OK' then 1 ELSE NULL END) as OkStatus,count(case when status= '404 NOT FOUND' then 1 ELSE NULL end) as NFStatus, date(time) as date from log group by date;
+
 
 ### Status Percentages
-This view generates the Percentages for logs status per each day
-~~~sql CREATE VIEW PercentageOfStatus as select (okstatus/ sum( okstatus + nfstatus) * 100 ) as Ok, (nfstatus/ sum( okstatus + nfstatus) * 100) as Error, date from DetailedStatus group by date, okstatus, nfstatus;
-~~~
+This view generates the Percentages for logs status per each day.
+> CREATE VIEW PercentageOfStatus as select (okstatus/ sum( okstatus + nfstatus) * 100 ) as Ok, (nfstatus/ sum( okstatus + nfstatus) * 100) as Error, date from DetailedStatus group by date, okstatus, nfstatus;
