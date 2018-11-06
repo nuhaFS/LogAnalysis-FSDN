@@ -18,9 +18,9 @@ HighestErrorPct = """SELECT to_char(HighestErrorPct.error,'0.00%')
                         as HighestErrorPct
                     WHERE error > 1;"""
 
-q1 = "1- What are the most popular three articles of all time?"
-q2 = "2- Who are the most popular article authors of all time?"
-q3 = "3- On which days did more than 1% of requests lead to errors?"
+q1 = "What are the most popular three articles of all time?"
+q2 = "Who are the most popular article authors of all time?"
+q3 = "On which days did more than 1% of requests lead to errors?"
 
 
 QuereyDictionary = {q1: MostViewedArticles,
@@ -29,7 +29,7 @@ QuereyDictionary = {q1: MostViewedArticles,
 
 
 def get_querey(q):
-    '''Fetching queriesresultes from database'''
+    '''Connect to database and fetch queries resultes'''
     db = db = psycopg2.connect(database=DB)
     c = db.cursor()
     c.execute(q)
