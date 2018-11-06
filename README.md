@@ -13,7 +13,8 @@ The database contains three tables:
 * log - (path, ip, method, status, time, id)
 
 **To connct to the database use**
-```psycopg2.connect(database=DB)
+```
+psycopg2.connect(database=DB)
 ```
 
 ## What You Need
@@ -44,6 +45,16 @@ and
 ```
 pip3 install tabulate
 ```
+### Wheel Packages Error
+When running the script via Python3 you might git this error
+**"144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead."**
+
+#### If the provided command did not work try to use this one:
+```
+pip3 install --pre -i https://testpypi.python.org/simple psycopg2-binary
+```
+Source: [Solving the problems with wheel packages](https://www.postgresql.org/message-id/CA%2Bmi_8bd6kJHLTGkuyHSnqcgDrJ1uHgQWvXCKQFD3tPQBUa2Bw%40mail.gmail.com)
+[For details see:](http://initd.org/psycopg/docs/install.html#binary-install-from-pypi)
 
 ## Database Views:
 The following are the view queries you will need to set up your database:
