@@ -30,7 +30,7 @@ QuereyDictionary = {q1: MostViewedArticles,
 
 def get_querey(q):
     '''Connect to database and fetch queries resultes'''
-    db = db = psycopg2.connect(database=DB)
+    db = psycopg2.connect(database=DB)
     c = db.cursor()
     c.execute(q)
     report = c.fetchall()
