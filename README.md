@@ -12,6 +12,10 @@ The database contains three tables:
 * authors - (name, bio, id)
 * log - (path, ip, method, status, time, id)
 
+**To connct to the database use**
+```psycopg2.connect(database=DB)
+```
+
 ## What You Need
 To setup your virtual machine and download required database file, please Check the "Prepare the software and data" section in the project details on Udacity.
 
