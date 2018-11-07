@@ -13,19 +13,19 @@ PopularAuthor = """SELECT a.name, b.slug as Title, c.NumberOfViews
                     FROM authors a, articles b, MostViewedArticles c
                     WHERE a.id = b.author AND b.slug = c.slug;"""
 HighestErrorPct = """SELECT To_CHAR(error, '0.00%') as ErrorPct, date
-                    FROM PercentageOfStatus where error >1;"""
+                    FROM PercentageOfStatus WHERE error >1;"""
 
 q1 = "What are the most popular three articles of all time?"
 q2 = "Who are the most popular article authors of all time?"
 q3 = "On which days did more than 1% of requests lead to errors?"
 
 
-QuereyDictionary = {q1: MostViewedArticles,
-                    q2: PopularAuthor,
-                    q3: HighestErrorPct}
+QueryDictionary = {q1: MostViewedArticles,
+                   q2: PopularAuthor,
+                   q3: HighestErrorPct}
 
 
-def get_querey(q):
+def get_query(q):
     '''Connect to database and fetch queries resultes'''
     db = psycopg2.connect(database=DB)
     c = db.cursor()
@@ -46,8 +46,9 @@ def get_title(t):
     return headers
 
 
-for i in QuereyDictionary:
-    result, titles = get_querey(QuereyDictionary[i])
-    Table = tabulate(result, headers=get_title(titles), tablefmt="fancy_grid")
+if __name__ == '__main__':
+    for i in QueryDictionary:
+        query, titles = get_query(QueryDictionary[i])
+        Tbl = tabulate(query, headers=get_title(titles), tablefmt="fancy_grid")
 
-    print(i + "\n" + Table + "\n\n")
+        print(i + "\n" + Tbl + "\n\n")
