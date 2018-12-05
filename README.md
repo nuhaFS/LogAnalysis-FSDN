@@ -7,10 +7,6 @@ Reports will answer the following questions:
 - Who are the most popular article authors of all time?
 - On which days did more than 1% of requests lead to errors?
 
-### Setup
-1- Navigate to the project folder inside the vagrant environment.</br>
-2- Run BlogDB.py</br>
-
 ## Prerequisites
 - VirtualBox
 - Vagrant
@@ -35,8 +31,10 @@ pip3 install psycopg2
 pip3 install tabulate
 ```
 
-## Database Views:
-The following are the view queries you will need to set up your database:
+## Setup
+1- Navigate to the project folder inside the vagrant environment.</br>
+2 - connect to the database and create the views.
+2- Run BlogDB.py</br>
 
 ### Most Viewed Articles
 This view will serve as a base query. It returns the articles according to most viewed ones.
