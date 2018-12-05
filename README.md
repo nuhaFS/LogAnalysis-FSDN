@@ -11,7 +11,7 @@ Reports will answer the following questions:
 1- Navigate to the project folder inside the vagrant environment.</br>
 2- Run BlogDB.py</br>
 
-##Prerequisites
+## Prerequisites
 - VirtualBox
 - Vagrant
 - Psycopg2
