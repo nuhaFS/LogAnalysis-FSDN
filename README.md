@@ -33,8 +33,8 @@ pip3 install tabulate
 
 ## Setup
 1- Navigate to the project folder inside the vagrant environment.</br>
-2 - connect to the database and create the views.
-2- Run BlogDB.py</br>
+2 - connect to the database and create the views.</br>
+3- Run BlogDB.py
 
 ### Most Viewed Articles
 This view will serve as a base query. It returns the articles according to most viewed ones.
