@@ -1,59 +1,39 @@
-# Log Analysis
+# Log Analysis 
 
-#### Log analysis is a simple script to summarize data extracted from the News Blog database. Using this script will return an analytical report for each of the following questions:
+A simple script to summarize data extracted from the News Blog database provided by Udacity-FSDN. 
+Reports will answer the following questions:
 
-* What are the most popular three articles of all time?
-* Who are the most popular article authors of all time?
-* On which days did more than 1% of requests lead to errors?
+- What are the most popular three articles of all time?
+- Who are the most popular article authors of all time?
+- On which days did more than 1% of requests lead to errors?
 
-### About the database
-The database contains three tables:
-* articles - contains ( author, title, slug, lead, body, time, id)
-* authors - (name, bio, id)
-* log - (path, ip, method, status, time, id)
+### Setup
+1- Navigate to the project folder inside the vagrant environment.</br>
+2- Run BlogDB.py</br>
 
-**To connct to the database use**
-```
-psycopg2.connect(database=DB)
-```
+##Prerequisites
+- VirtualBox
+- Vagrant
+- Psycopg2
+- Tabulate
 
-## What You Need
-To setup your virtual machine and download required database file, please Check the "Prepare the software and data" section in the project details on Udacity.
-
-To run this script you will need to install **Psycopg2** and **Tabulate**
-
-* If you are using **Python2** run the following code in your Command Line
+**Python2:**
 
 ```
 pip install psycopg2
 ```
-
-and
-
 ```
 pip install tabulate
 ```
 
-* If you are using **Python3** run the following in your Command Line
+**Python3:**
 
 ```
 pip3 install psycopg2
 ```
-
-and
-
 ```
 pip3 install tabulate
 ```
-### Wheel Packages Error
-When running the script via Python3, although it returns results, it also show this error first:
-**"144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead."**
-
-#### If the provided command did not work, try to use this one:
-```
-pip3 install --pre -i https://testpypi.python.org/simple psycopg2-binary
-```
-Source: [Solving the problems with wheel packages](https://www.postgresql.org/message-id/CA%2Bmi_8bd6kJHLTGkuyHSnqcgDrJ1uHgQWvXCKQFD3tPQBUa2Bw%40mail.gmail.com). For details see:[Binary install from PyPI](http://initd.org/psycopg/docs/install.html#binary-install-from-pypi)
 
 ## Database Views:
 The following are the view queries you will need to set up your database:
